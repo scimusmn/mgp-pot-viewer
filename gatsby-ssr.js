@@ -3,7 +3,9 @@
 import PropTypes from 'prop-types';
 import './src/styles/index.css';
 
-export const wrapRootElement = ({ element }) => element;
+export function wrapRootElement({ element }) {
+  return element;
+}
 
 wrapRootElement.propTypes = {
   element: PropTypes.element.isRequired,
