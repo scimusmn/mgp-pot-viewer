@@ -1,9 +1,16 @@
 html,
 body {
   height: 100%;
+  margin: 0;
   width: 100%;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+  background-color: orange;
+  height: 1080px;
+  width: 1920px;
 }
