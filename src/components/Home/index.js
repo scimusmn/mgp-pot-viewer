@@ -23,8 +23,8 @@ function Home() {
       <button type="button" onClick={resetControls}>Reset Controls</button>
 
       <Canvas>
-        <ambientLight intensity={0.9} />
-        <directionalLight color="white" position={[2, 3, 5]} />
+        <ambientLight intensity={1.5} />
+        <directionalLight color="white" position={[5, 5, 5]} />
         <Suspense fallback={null}>
           <Scene />
           <OrbitControls ref={controlsRef} />
