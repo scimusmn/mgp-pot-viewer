@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unknown-property */
-import React, { Suspense } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useFBX } from '@react-three/drei';
 
@@ -10,14 +10,24 @@ function Scene() {
 }
 
 function Home() {
+  const controlsRef = useRef();
+
+  const resetControls = () => {
+    if (controlsRef.current) {
+      controlsRef.current.reset();
+    }
+  };
+
   return (
     <div className="wrapper">
+      <button type="button" onClick={resetControls}>Reset Controls</button>
+
       <Canvas>
         <ambientLight intensity={0.9} />
         <directionalLight color="white" position={[2, 3, 5]} />
         <Suspense fallback={null}>
           <Scene />
-          <OrbitControls />
+          <OrbitControls ref={controlsRef} />
         </Suspense>
       </Canvas>
     </div>
