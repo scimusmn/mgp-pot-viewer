@@ -4,7 +4,9 @@ module.exports = {
   extends: [
     'airbnb',
     'plugin:jsx-a11y/strict',
+    'plugin:@react-three/recommended',
   ],
+  plugins: ['@react-three'],
   env: {
     browser: true,
   },
@@ -15,6 +17,11 @@ module.exports = {
   ],
   rules: {
     'import/no-extraneous-dependencies': 'off',
+    // With React-Three Fiber, certain prop names are not recognized by ESLint.
+    // We need to ignore those specific prop names.
+    // https://github.com/jsx-eslint/eslint-plugin-react/blob/
+    // master/docs/rules/no-unknown-property.md
+    'react/no-unknown-property': ['error', { ignore: ['object', 'intensity', 'position'] }],
     // The SMM team doesn't write React code in .jsx files exclusively, as is suggested in the
     // Airbnb guide, so override this rule to allow .js files.
     'react/jsx-filename-extension': [
