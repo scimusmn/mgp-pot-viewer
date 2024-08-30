@@ -42,7 +42,7 @@ function Home() {
 
   return (
     <div className="wrapper">
-      <Canvas style={{ background: '#d3d3d3' }}>
+      <Canvas style={{ background: '#000000' }}>
         <ambientLight intensity={1.5} />
         <directionalLight color="white" position={[5, 5, 5]} />
         <Suspense fallback={null}>
