@@ -28,14 +28,13 @@ function Home() {
       }
     };
 
-    document.addEventListener('mousemove', handleActivity);
-    document.addEventListener('keydown', handleActivity);
-
+    const events = ['mousemove', 'keydown', 'touchstart', 'touchmove', 'scroll'];
     const interval = setInterval(checkInactivity, 1000);
 
+    events.forEach((event) => document.addEventListener(event, handleActivity));
+
     return () => {
-      document.removeEventListener('mousemove', handleActivity);
-      document.removeEventListener('keydown', handleActivity);
+      events.forEach((event) => document.removeEventListener(event, handleActivity));
       clearInterval(interval);
     };
   }, [lastActivity]);
