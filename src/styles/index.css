@@ -12,7 +12,8 @@ body {
 }
 
 .wrapper {
-  height: 1200px;
+  height: 1080px;
+  overflow: hidden;
   width: 1920px;
 }
 
